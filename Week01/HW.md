@@ -2,8 +2,8 @@
 
 ## 1. Add yourself to the roster
 
-Add your name and your GitHub repo link to the class roster sheet:
-**[Class Roster - Be sure to choose the correct tab/sheet for your section](https://docs.google.com/spreadsheets/d/1z2Zj-npFhhpeZoy1yi4nVTIBzdGaEPoucb1NmZb1jpc/edit?usp=sharing)**
+Add your name and your GitHub repo link to the class roster sheet. Be sure you fill out the correct section tab!:
+**[Dynamic Web Roster Fall 2026](https://docs.google.com/spreadsheets/d/1z2Zj-npFhhpeZoy1yi4nVTIBzdGaEPoucb1NmZb1jpc/edit?usp=sharing)**
 
 ## 2. Read this git guide
 

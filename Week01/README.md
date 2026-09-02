@@ -1,121 +1,34 @@
-# Week 01 — Day 1
+# Week 01 — Hello React
 
-**Goal for today:** every student leaves with a React app running on their own
-machine, and their first commit pushed to GitHub.
+*From an empty folder to a component rendering on screen · ~25 min of live coding*
 
-Not "every student has the tools installed." Running code. The tools are in
-service of that, not the other way around.
+> **Following along at home?** Work through the steps in order. Each step shows what changed, and the full file underneath it. If you get lost, the finished code is in `end-of-class/`.
 
----
+Today we go from an empty folder to a React component rendering on screen. Type every line rather than pasting — the muscle memory matters more than you'd think, and you'll be doing this from scratch again next week.
 
-## Run of show (~110 min)
-
-| Time | What | Why |
-|---|---|---|
-| 0:00–0:10 | Ship something | A win before any admin |
-| 0:10–0:25 | Syllabus, intros, the destination | Context |
-| 0:25–0:45 | JS warm-up | Diagnostic in disguise |
-| 0:45–1:15 | Setup clinic | The unavoidable part, made social |
-| 1:15–1:40 | First Vite project | The actual goal |
-| 1:40–1:50 | Git, minimally | How you'll hand things in |
+If something breaks, that's the class working as intended. Read the error, then check [TROUBLESHOOTING.md](../TROUBLESHOOTING.md).
 
 ---
 
-## 0:00–0:10 — Ship something
+## Steps
 
-Put a StackBlitz link on the board before anyone sits down. No install, works on
-any laptop, works on a phone.
-
-> https://stackblitz.com/fork/github/vitejs/vite/tree/main/packages/create-vite/template-react
-> (or your own saved fork — make one in August and keep the link stable)
-
-Everyone opens it, changes one string, changes one number, watches the browser
-update.
-
-Then say the thing:
-
-> "That's React. You changed the data, the screen changed, and you never touched
-> the HTML. Everything else this semester is details."
-
-**Why open this way:** it puts a win on the board before anybody has a chance to
-feel behind, and it works even for the student whose laptop is broken. It also
-reframes the next hour — we're not "setting up tools," we're setting up the
-tools for the thing you just did.
+1. [Make the project](#step-1)
+2. [Look around, then clear it out](#step-2)
+3. [Empty main.jsx, then import the two libraries](#step-3)
+4. [Grab the root div and hand it to React](#step-4)
+5. [Our first component](#step-5)
+6. [JSX rule: one parent element](#step-6)
+7. [Curly braces: dropping JavaScript into JSX](#step-7)
+8. [Move App into its own file](#step-8)
+9. [Import it back, and wrap it in StrictMode](#step-9)
 
 ---
 
-## 0:10–0:25 — Syllabus, intros, and the destination
+<a id="step-1"></a>
 
-Syllabus fast. The parts that actually matter to them:
+## Step 1 — Make the project
 
-- attendance (3 unexcused = grade drops 5%)
-- how homework is submitted — your GitHub repo, pushed
-- office hours link
-- documentation is 5% of your grade at IDM, and a clean repo with real README
-  files is the easiest 5% you will ever earn
-
-**Then show them where this goes.** Open a finished project from a previous
-semester and click through it — the art collection app or the image search app.
-
-> "This is week 13. You will build this. You will not believe me today."
-
-Names: go around, or name tents. With two sections you want the names early.
-
----
-
-## 0:25–0:45 — JS warm-up
-
-**Not** a general JavaScript review. Exactly the six things their week-2 code
-will demand, and nothing else.
-
-Give them `js-warmup.md` (in this folder) and 15 minutes, in pairs. Walk the
-room.
-
-1. arrow functions
-2. destructuring
-3. template literals
-4. `.map()`
-5. spread `...`
-6. ternary and `&&`
-
-**This is a diagnostic wearing an exercise costume.** The wall students hit in
-this course is almost never React — it's `.map()` and destructuring. Finding the
-four people who are underwater on day 1, instead of week 4, is the single most
-useful twenty minutes in the semester. Note who struggles. Email them a link to
-a JS refresher that night, individually, before they've had a chance to decide
-they're bad at this.
-
----
-
-## 0:45–1:15 — Setup clinic
-
-Everyone runs:
-
-```bash
-node -v && npm -v && git --version
-```
-
-Then:
-
-- **Green students become floaters.** Hands up if all three printed. Pair each
-  one with a neighbor who's stuck. This is the best use of these thirty minutes
-  and it starts the peer-help habit you want in week 10.
-- **Sit the Windows students together** and check on them as a group. Tell them
-  to use **Git Bash**, not PowerShell or CMD, so their terminal matches yours.
-  This class is taught on a Mac and you should say so out loud.
-- **GitHub auth is the real boss fight.** Password-over-HTTPS has not worked
-  since 2021. Everyone will need a **personal access token** the first time they
-  push. See `../TROUBLESHOOTING.md` → "GitHub won't let me push."
-- **Say the fallback out loud, early:** *"If you're still stuck at 1:15, you'll
-  work in StackBlitz today and we'll fix it in office hours. Nobody is going to
-  sit here stuck for an hour."* This costs nothing and it stops one bad install
-  from becoming one dropped student.
-
----
-
-## 1:15–1:40 — First real project
-
-Everybody, together, one command at a time. Slowly.
+Vite scaffolds the project for us. The `--` before `--template` is not a typo — it tells npm that the flag belongs to Vite, not to npm.
 
 ```bash
 npm create vite@latest hello-react -- --template react
@@ -124,117 +37,410 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173
-
-> **Why not `create-react-app`?** The React team retired it in February 2025. If
-> you run `npx create-react-app` today you get a deprecation warning and a pile
-> of dependency errors. Vite is what the React docs point at now, it installs in
-> seconds instead of minutes, and the dev server reloads instantly. If you find
-> a tutorial from 2023 that says `create-react-app`, everything in it still
-> applies — only the setup step changed. See `../VITE_MIGRATION_NOTES.md`.
-
-### What's in the box
-
-```
-hello-react/
-├── index.html          ← the real HTML page. React renders into #root.
-├── package.json        ← our dependency list + the npm scripts
-├── vite.config.js      ← build tool config
-└── src/
-    ├── main.jsx        ← the first file that runs
-    ├── App.jsx         ← our first component
-    └── …               ← template junk we're about to delete
-```
-
-Two things to point out, because they'll save you questions all semester:
-
-- **`index.html` is at the top level, and it is a real file you can edit.** In
-  create-react-app it was buried in `public/` and everyone forgot it existed.
-- **`.jsx`, not `.js`.** Vite wants the extension to match what's inside. A file
-  with JSX in it should end in `.jsx`.
-
-### Clear it out and rebuild it
-
-Delete `src/App.css`, `src/index.css`, and `src/assets/`. Then write `main.jsx`
-and `App.jsx` from scratch together — see `end-of-class/hello-react/` for where
-you should land.
-
-Talk through:
-
-- importing `React` and `ReactDOM` before we use them
-- `ReactDOM` is for browsers; the alternative for phones is React Native
-- grabbing `#root` and handing it to React
-- a component is **a function that returns JSX**
-- the name **must** be capitalized — that's how React tells your components from
-  plain html tags
-- `export default` / `import` — how files find each other
-
-Then have them change the text and watch it hot-reload without losing state.
-That moment is the whole pitch for the tool.
-
-**Stop the server with `Ctrl + C`.** Tell them this now or you'll get emails.
-
 ---
 
-## 1:40–1:50 — Git, minimally
+<a id="step-2"></a>
 
-Not the whole lecture. One loop, once, everyone at the same time.
+## Step 2 — Look around, then clear it out
 
-1. On GitHub: **New repository** → name it `dynamic-web-f26` → **Public** →
-   check "Add a README" → Create
-2. Copy the HTTPS url from the green **Code** button
-3. In your terminal, somewhere sensible like your Desktop:
+Vite gives us a demo app. We are going to delete it and rebuild it by hand, because the whole point today is that you know what every line does.
+
+Three files matter:
+
+- **`index.html`** — a real HTML page, at the top level where you can see it. React renders into that one empty `<div id="root">`.
+- **`src/main.jsx`** — the first JavaScript that runs.
+- **`package.json`** — our dependency list and our npm scripts.
 
 ```bash
-git clone <paste-your-url-here>
-cd dynamic-web-f26
+rm src/App.css src/index.css
+rm -rf src/assets
 ```
-
-4. Drag your `hello-react` folder into it
-5. Then:
-
-```bash
-git status          # see what git has noticed
-git add .
-git commit -m "week 1: hello react"
-git push
-```
-
-6. Refresh the GitHub page in your browser. Your code is there.
-
-> **First push will ask for a password.** Your GitHub password will not work.
-> You need a personal access token — `../TROUBLESHOOTING.md` walks through it.
-> Budget ten minutes for this; it bites almost everybody once.
-
-**Do not clone the class repo today.** They'll need it next class, when there's
-actually a starter folder in it worth having. Teaching both repos on day 1 is
-how students end up committing homework into the class repo.
 
 ---
 
-## Homework
+<a id="step-3"></a>
 
-See `HW.md`. The short version: **build an HTML recipe card for a recipe you
-actually like.**
+## Step 3 — Empty main.jsx, then import the two libraries
 
-Tell them why, explicitly:
+Delete everything in `main.jsx` and start over.
 
-> "Next class we turn your recipe into a React app. Then we break it into
-> components. Then we style it, and add a rating widget. You're going to be
-> looking at this recipe for three weeks — pick one you like."
+`react` is the library that knows how components work. `react-dom` is the part that knows how to put them in a **browser**. If we were building a phone app, that second import would be React Native instead — same React, different renderer.
+
+**`src/main.jsx`**  — new file
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+```
 
 ---
 
-## Notes to self
+<a id="step-4"></a>
 
-- **Publish everything the night before, by 8pm.** Both sections get the same
-  material; there's no reason for a student who preps ahead to find an empty
-  folder.
-- **Run section A first and keep a `KNOWN_ISSUES.md`.** Whatever breaks in the
-  first section, fix before the second one walks in. That's a free dress
-  rehearsal you didn't have in previous years.
-- **Do NOT introduce a single library in weeks 1–3.** No Tailwind, no Router, no
-  typechecking. Plain CSS, CSS Modules, `useState`. The one exception is
-  `react-icons` in week 3, and only because they want a heart. Every previous
-  semester hit a wall in week 3 by stacking six libraries on students who
-  couldn't yet say where state should live.
+## Step 4 — Grab the root div and hand it to React
+
+`document.getElementById` is plain old JavaScript — the same line you'd write without React. That is the handoff point. From here down, React owns that div and we stop touching the DOM ourselves.
+
+This is the last time this semester you will see `getElementById`.
+
+**`src/main.jsx`**
+
+What changed:
+
+```diff
+@@ -2,2 +2,8 @@
+ import ReactDOM from 'react-dom/client'
+ 
++// Plain JavaScript: find the empty div in index.html.
++const el = document.getElementById('root')
++
++// Hand it to React. From here on, React owns this div.
++const root = ReactDOM.createRoot(el)
++
+```
+
+<details>
+<summary>Full file after this step</summary>
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// Plain JavaScript: find the empty div in index.html.
+const el = document.getElementById('root')
+
+// Hand it to React. From here on, React owns this div.
+const root = ReactDOM.createRoot(el)
+```
+
+</details>
+
+---
+
+<a id="step-5"></a>
+
+## Step 5 — Our first component
+
+A component is **a function that returns JSX**. That is the whole definition. It is not a class, it is not magic, it is a function.
+
+The name **must** start with a capital letter. That is how React tells your components apart from real html tags — lowercase `<div>` means the browser element, uppercase `<App>` means your function.
+
+**`src/main.jsx`**
+
+What changed:
+
+```diff
+@@ -8,2 +8,11 @@
+ const root = ReactDOM.createRoot(el)
+ 
++// A component is a function that returns JSX.
++// The name MUST be capitalised.
++function App() {
++  return <h1>Hello World!</h1>
++}
++
++// Render it into the div we just handed over.
++root.render(<App />)
++
+```
+
+<details>
+<summary>Full file after this step</summary>
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// Plain JavaScript: find the empty div in index.html.
+const el = document.getElementById('root')
+
+// Hand it to React. From here on, React owns this div.
+const root = ReactDOM.createRoot(el)
+
+// A component is a function that returns JSX.
+// The name MUST be capitalised.
+function App() {
+  return <h1>Hello World!</h1>
+}
+
+// Render it into the div we just handed over.
+root.render(<App />)
+```
+
+</details>
+
+---
+
+<a id="step-6"></a>
+
+## Step 6 — JSX rule: one parent element
+
+Try adding a second line and it breaks. A component returns **one** thing, so two sibling elements need a parent to wrap them.
+
+The wrapper can be a real `<div>`, or — if you don't want an extra div in your markup — an empty `<>...</>` fragment.
+
+**`src/main.jsx`**
+
+What changed:
+
+```diff
+@@ -11,5 +11,11 @@
+ // The name MUST be capitalised.
+ function App() {
+-  return <h1>Hello World!</h1>
++  // A component returns ONE element. Siblings need a parent.
++  return (
++    <div>
++      <h1>Hello World!</h1>
++      <p>Change this text, hit save, and watch the browser update by itself.</p>
++    </div>
++  )
+ }
+ 
+```
+
+<details>
+<summary>Full file after this step</summary>
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// Plain JavaScript: find the empty div in index.html.
+const el = document.getElementById('root')
+
+// Hand it to React. From here on, React owns this div.
+const root = ReactDOM.createRoot(el)
+
+// A component is a function that returns JSX.
+// The name MUST be capitalised.
+function App() {
+  // A component returns ONE element. Siblings need a parent.
+  return (
+    <div>
+      <h1>Hello World!</h1>
+      <p>Change this text, hit save, and watch the browser update by itself.</p>
+    </div>
+  )
+}
+
+// Render it into the div we just handed over.
+root.render(<App />)
+```
+
+</details>
+
+---
+
+<a id="step-7"></a>
+
+## Step 7 — Curly braces: dropping JavaScript into JSX
+
+Curly braces mean *stop reading this as markup, start reading it as JavaScript*. Anything that produces a value can go in there — a variable, `2 + 2`, a function call.
+
+This is the hinge the whole course turns on. Right now the value is hardcoded; in two weeks it comes from data, and after that it comes from state and changes when the user clicks something.
+
+**`src/main.jsx`**
+
+What changed:
+
+```diff
+@@ -8,4 +8,6 @@
+ const root = ReactDOM.createRoot(el)
+ 
++const student = 'World'
++
+ // A component is a function that returns JSX.
+ // The name MUST be capitalised.
+@@ -14,5 +16,6 @@
+   return (
+     <div>
+-      <h1>Hello World!</h1>
++      {/* curly braces = 'this bit is JavaScript' */}
++      <h1>Hello {student}!</h1>
+       <p>Change this text, hit save, and watch the browser update by itself.</p>
+     </div>
+```
+
+<details>
+<summary>Full file after this step</summary>
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// Plain JavaScript: find the empty div in index.html.
+const el = document.getElementById('root')
+
+// Hand it to React. From here on, React owns this div.
+const root = ReactDOM.createRoot(el)
+
+const student = 'World'
+
+// A component is a function that returns JSX.
+// The name MUST be capitalised.
+function App() {
+  // A component returns ONE element. Siblings need a parent.
+  return (
+    <div>
+      {/* curly braces = 'this bit is JavaScript' */}
+      <h1>Hello {student}!</h1>
+      <p>Change this text, hit save, and watch the browser update by itself.</p>
+    </div>
+  )
+}
+
+// Render it into the div we just handed over.
+root.render(<App />)
+```
+
+</details>
+
+---
+
+<a id="step-8"></a>
+
+## Step 8 — Move App into its own file
+
+Real projects put one component per file. Make `src/App.jsx` and move the component into it.
+
+`export default` means *this is the main thing this file offers*. A file can have exactly one default export.
+
+**`src/App.jsx`**  — new file
+
+```jsx
+const student = 'World'
+
+// A component is a function that returns JSX.
+// The name MUST be capitalised.
+function App() {
+  // A component returns ONE element. Siblings need a parent.
+  return (
+    <div>
+      {/* curly braces = 'this bit is JavaScript' */}
+      <h1>Hello {student}!</h1>
+      <p>Change this text, hit save, and watch the browser update by itself.</p>
+    </div>
+  )
+}
+
+// Export it so other files can import it.
+export default App
+```
+
+**`src/main.jsx`**
+
+What changed:
+
+```diff
+@@ -8,19 +8,4 @@
+ const root = ReactDOM.createRoot(el)
+ 
+-const student = 'World'
+-
+-// A component is a function that returns JSX.
+-// The name MUST be capitalised.
+-function App() {
+-  // A component returns ONE element. Siblings need a parent.
+-  return (
+-    <div>
+-      {/* curly braces = 'this bit is JavaScript' */}
+-      <h1>Hello {student}!</h1>
+-      <p>Change this text, hit save, and watch the browser update by itself.</p>
+-    </div>
+-  )
+-}
+-
+ // Render it into the div we just handed over.
+ root.render(<App />)
+```
+
+<details>
+<summary>Full file after this step</summary>
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// Plain JavaScript: find the empty div in index.html.
+const el = document.getElementById('root')
+
+// Hand it to React. From here on, React owns this div.
+const root = ReactDOM.createRoot(el)
+
+// Render it into the div we just handed over.
+root.render(<App />)
+```
+
+</details>
+
+---
+
+<a id="step-9"></a>
+
+## Step 9 — Import it back, and wrap it in StrictMode
+
+`import App from './App'` — no curly braces, because it was a **default** export. (Named exports need braces. You'll meet those next week and it will trip you up once.)
+
+`<React.StrictMode>` is a development-only helper that warns you about sketchy patterns. It does nothing in the built version. Leave it on.
+
+**`src/main.jsx`**
+
+What changed:
+
+```diff
+@@ -1,4 +1,8 @@
+ import React from 'react'
+ import ReactDOM from 'react-dom/client'
++
++// No curly braces: App was a DEFAULT export.
++// './' means 'a file next to this one', not a package.
++import App from './App'
+ 
+ // Plain JavaScript: find the empty div in index.html.
+@@ -9,4 +13,9 @@
+ 
+ // Render it into the div we just handed over.
+-root.render(<App />)
++// StrictMode is a dev-only helper that warns about bad patterns.
++root.render(
++  <React.StrictMode>
++    <App />
++  </React.StrictMode>
++)
+ 
+```
+
+<details>
+<summary>Full file after this step</summary>
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// No curly braces: App was a DEFAULT export.
+// './' means 'a file next to this one', not a package.
+import App from './App'
+
+// Plain JavaScript: find the empty div in index.html.
+const el = document.getElementById('root')
+
+// Hand it to React. From here on, React owns this div.
+const root = ReactDOM.createRoot(el)
+
+// Render it into the div we just handed over.
+// StrictMode is a dev-only helper that warns about bad patterns.
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+```
+
+</details>
+
+---
+
+**You just built a React app from nothing.** Every line in `main.jsx` is there because you put it there and you know what it does.
+
+Next: [HW.md](HW.md) — build a recipe card in plain HTML. Next class we turn *your* file into a React app.
