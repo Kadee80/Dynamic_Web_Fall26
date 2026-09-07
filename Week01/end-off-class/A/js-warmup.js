@@ -21,5 +21,5 @@ const ingredients = ['butter', 'milk', 'egg']
 const INGREDIENTS = ingredients.map((ingredient) => {
   return ingredient.toUpperCase()
 })
-
+// Shorthand single line =  no {} and no return statement
 // const INGREDIENTS = ingredients.map((ingredient) => ingredient.toUpperCase())
