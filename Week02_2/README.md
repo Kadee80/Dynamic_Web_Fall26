@@ -1,4 +1,4 @@
-# Week 03 — Scoped styles, and our first piece of state
+# Week 2_2 — Scoped styles, and our first piece of state
 
 *CSS Modules, then making the card respond to clicks · ~75 min of live coding*
 
