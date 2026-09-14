@@ -1,0 +1,10 @@
+/* Tailwind v4: one import replaces the old
+     @tailwind base; @tailwind components; @tailwind utilities;
+   trio, and there is no tailwind.config.js to fill in. */
+@import 'tailwindcss';
+
+/* Theme values are declared in CSS now instead of a JS config file.
+   Anything you put here becomes a utility class. */
+@theme {
+  --color-brand: #48b2ff;
+}
