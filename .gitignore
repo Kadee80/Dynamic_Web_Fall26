@@ -23,6 +23,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# teaching notes
-TEACH.html
+# teaching notes -- podium cues, pacing, what to watch for. Never published.
+# Covers TEACH.md, TEACH.html, TEACH-A.html / TEACH-B.html, the
+# *.artifact.html fragments, and any TEACH/ folder of worked examples.
 TEACH.md
+TEACH*.html
+TEACH/
+
+# the live-code generator: session sources contain the podium cues verbatim
+_livecode/
