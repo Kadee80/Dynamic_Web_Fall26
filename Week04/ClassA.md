@@ -1,4 +1,4 @@
-# Week 05 — Routes, and a Dropdown that listens
+# Week 04 — Routes, and a Dropdown that listens
 
 *React Router, then a Dropdown with useRef and useEffect · ~95 min of live coding*
 
