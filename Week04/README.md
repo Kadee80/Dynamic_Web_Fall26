@@ -5,10 +5,12 @@ outgrows one long page, so every component gets its own url — and then we buil
 two components that have to reach **outside** themselves: a Dropdown that hears
 clicks anywhere on the page, and a Modal that renders somewhere else entirely.
 
-| | |
-|---|---|
+|                                                    |                                                                                                                                                                                                              |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **[Class A — Routes and the Dropdown](ClassA.md)** | Components vs pages, React Router (`BrowserRouter`, `Routes`, `Link`), a reusable `Panel`, then a Dropdown whose selected value lives in the page. `useRef` and `useEffect` to close it on an outside click. |
-| **[Class B — the Modal](ClassB.md)** | Why `absolute` breaks and `fixed` isn't enough, `createPortal`, `children` and JSX-as-props for a reusable Modal, and `useEffect` again to lock the page's scroll. |
+| **[Class B — the Modal](ClassB.md)**               | Why `absolute` breaks and `fixed` isn't enough, `createPortal`, `children` and JSX-as-props for a reusable Modal, and `useEffect` again to lock the page's scroll.                                           |
+
+[Input Binding Slideshow](./Input_Binding_in_React.pptx)
 
 Class B picks up exactly where class A ends. If you missed class A, or your
 project is in a strange state, copy `starter/` again and work through

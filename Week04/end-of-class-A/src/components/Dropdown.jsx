@@ -18,31 +18,26 @@ const Dropdown = (props) => {
     setIsOpen(false)
     onChange(option)
   }
-
-  // whenever we map, we need a key at the top level element returned
-  const renderedOptions = options.map((opt, index) => {
-    return (
-      <div
-        key={index}
-        className="hover:bg-sky-100 rounded-md cursor-pointer p-1"
-        onClick={() => handleOptionClick(opt)}
-      >
-        {opt.label}
-      </div>
-    )
-  })
+  const renderedOptions = options.map((opt, index) => (
+    <div
+      onClick={() => handleOptionClick(opt)}
+      key={index}
+      className="hover:bg-sky-100 rounded cursor-pointer p-1"
+    >
+      {opt.label}
+    </div>
+  ))
 
   return (
-    <div className="w-48">
+    <div ref={divEl} className="w-48 relative">
       <Panel
-        className="flex justify-between items-center cursor-pointer"
         onClick={handleClick}
+        className="flex justify-between items-center cursor-pointer"
       >
-        Select ... <GoChevronDown />
+        <GoChevronDown />
       </Panel>
-      {isOpen && <Panel>{renderedOptions}</Panel>}
+      {isOpen && <Panel className="absolute top-full">{renderedOptions}</Panel>}
     </div>
   )
 }
-
 export default Dropdown
