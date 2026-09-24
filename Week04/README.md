@@ -9,7 +9,7 @@ clicks anywhere on the page, and a Modal that renders somewhere else entirely.
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **[Class A — Routes and the Dropdown](ClassA.md)** | Components vs pages, React Router (`BrowserRouter`, `Routes`, `Link`), a reusable `Panel`, then a Dropdown whose selected value lives in the page. `useRef` and `useEffect` to close it on an outside click. |
 | **[Class B — the Modal](ClassB.md)**               | Why `absolute` breaks and `fixed` isn't enough, `createPortal`, `children` and JSX-as-props for a reusable Modal, and `useEffect` again to lock the page's scroll.                                           |
-[Input_Binding_in_React.pptx]('https://docs.google.com/presentation/d/1juCrEEMZjCMUyVPI49vLHXzQLvY3hIYz1Ll9ThtKQHw/edit?slide=id.p4#slide=id.p')
+[Input_Binding_in_React.pptx](https://docs.google.com/presentation/d/1juCrEEMZjCMUyVPI49vLHXzQLvY3hIYz1Ll9ThtKQHw/edit?slide=id.p4#slide=id.p)
 
 Class B picks up exactly where class A ends. If you missed class A, or your
 project is in a strange state, copy `starter/` again and work through
