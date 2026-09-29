@@ -1,0 +1,53 @@
+/* ==========================================================================
+   The card flip. This is a CSS Module: the `.module.css` in the filename is
+   what makes it one. Vite rewrites every class in here to a unique name at
+   build time, so a `.card` in this file can never collide with a `.card`
+   anywhere else in the project. You import it as an object and read the
+   class names off it -- see Card.jsx.
+
+   This is the one place in the project we are not using Tailwind. A 3D flip
+   needs three properties working together across three nested elements;
+   written as utility classes it is unreadable, and written as CSS it is
+   eight lines you can follow with your finger.
+   ========================================================================== */
+
+.card {
+  background-color: transparent;
+  aspect-ratio: 1;
+  /* how much depth the 3D space has. Without it the rotation looks flat --
+     the card just squashes instead of turning */
+  perspective: 1000px;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  /* the two faces keep their own place in 3D space instead of being
+     flattened onto the parent */
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* the whole trick: turn the card half way round.
+   For now that happens on hover -- in class we move it onto a click. */
+.card:hover .inner {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  /* hide whichever face is pointing away from us. Take this out and both
+     images show through each other at once. */
+  backface-visibility: hidden;
+  background-color: #aaa;
+}
+
+/* the back starts pre-rotated, so it is facing us once the card turns */
+.back {
+  transform: rotateY(180deg);
+}
