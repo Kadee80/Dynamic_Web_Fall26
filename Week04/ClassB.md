@@ -1,4 +1,4 @@
-# Week 05 — The Modal: portals and escaping the page
+# Week 04 — The Modal: portals and escaping the page
 
 *Building a Modal with createPortal, fixed positioning and useEffect · ~90 min of live coding*
 
