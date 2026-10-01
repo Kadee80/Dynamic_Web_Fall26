@@ -19,6 +19,11 @@ const NavBar = () => {
           Dropdown
         </Link>
       </div>
+      <div className="mt-8 px-3">
+        <Link to="/modal" className="text-blue-500">
+          Modal
+        </Link>
+      </div>
     </Panel>
   )
 }
