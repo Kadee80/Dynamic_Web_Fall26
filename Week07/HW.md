@@ -16,19 +16,27 @@ Three questions you should be able to answer about your own code:
 That third one is the whole of Thursday. If the answer is not clear to you,
 come and find me before the midterm rather than after.
 
-## 2. Start the midterm — the deciding part
+## 2. Start the midterm — the three things to write down
 
-Read [Midterm.md](Midterm.md) properly, then make the two decisions that
-everything else depends on:
+Read [Midterm.md](Midterm.md) properly, then write these, in this order,
+**before you open your editor**:
 
-- [ ] **What is your app for?** One sentence, written down. "A reading list for
-      books I keep meaning to finish." "A watering schedule for my plants."
-- [ ] **What is your extra input?** Name the field, its type, and what it is
-      for — a date, a select with specific options, a number with a unit.
+- [ ] **What is your app for?** One to three sentences. The elevator pitch.
+      "A reading list for books I keep meaning to finish."
 
-Then get as far as **making that one input work end to end**: in the form,
-saved to the server, showing in the list, editable. That is the piece that
-takes longest and the piece people leave until last.
+- [ ] **Your user story.** *As a [kind of person], I want to [do something], so
+      that [reason].* This is the one that matters — the field you add should
+      fall out of this sentence, not the other way round.
+
+- [ ] **Your developer checklist.** Every step you think it will take to add
+      that field. Be specific, and be wrong — the point is to compare it later
+      with what it actually took. Nobody gets this list right the first time,
+      and the gap is a graded part of the project.
+
+Then get as far as **making the field work end to end**: in the create form,
+saved to the server, showing in the list, and in the edit form too. That last
+one is the step most people forget, which is exactly why you are keeping a
+checklist.
 
 Push what you have by Tuesday, even if it is rough. I would rather see a
 half-built thing on Tuesday than a surprise in Week 09.
@@ -43,9 +51,9 @@ required.
 
 ## Extra, not required
 
-- **A filter** on the game: a best score kept across games in the same session.
-- **On the todo list:** sorting, search, or a filter — all three are `filter`
-  and `sort` on data you already hold, with no server involved.
+- **On the game:** a best score kept across games in the same session.
+- **On the todo list:** filtering or sorting *by your new field* — which is
+  usually the real point of the user story, and needs no server work at all.
 
 ---
 
