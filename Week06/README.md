@@ -1,30 +1,24 @@
-# Week 06 — The Todo List: CRUD, persistence, and Context
+# Week 06 — The Todo List: CRUD and persistence
 
-One project, built up in three passes. Each class picks up exactly where the
-last one ended.
+One project across two classes. Tuesday it works; Thursday it stops forgetting.
 
 | | |
 |---|---|
 | **[Class A — CRUD in state](ClassA.md)** | Create, read, update and delete a list of todos. No new hooks — `useState`, props, and three array methods doing specific jobs. The real lesson is **which state lives where**: the list in `App`, the half-typed text in `TodoCreate`, the edit toggle in `TodoItem`. |
 | **[Class B — persistence](ClassB.md)** | `json-server` turns a JSON file into a real REST API, and each of Tuesday's four operations becomes a request: GET, POST, PUT, DELETE. The discipline is **ask the server first, change the screen second**. |
-| **[Class C — Context](ClassC.md)** | A refactor: the same app, with the state and the four operations in one Provider, and no props threaded through components that do not use them. Plus `useCallback`, and an honest list of what Context is *not*. |
 
-If you missed a class or your project is in a strange state, copy
-`starter/todo-list` and work through [ClassA.md](ClassA.md) — it is a complete
-walkthrough, and the two classes after it continue the same project.
+The Context refactor of this same project is [Week 07, Class A](../Week07/ClassA.md).
 
 **Homework:** [HW.md](HW.md)
 
 ## Files in this folder
 
-- **`starter/todo-list`** — where class A ends, ready for class B.
-- **`end-of-class/todo-list`** — where class B ends: working persistence, with
-  `db.json` and `api.http`.
-- **`end-of-class/todo-list-context`** — where class C ends: the same app,
-  refactored onto Context.
+- **`end-of-class/todo-list-V1`** — where class A ended, in class.
+- **`end-of-class/todo-list-V2`** — persistence working, with `db.json` and
+  `api.http`.
 
 ```bash
-cp -R starter/todo-list ~/your-hw-repo/week06-todo-list
+cp -R end-of-class/todo-list-V2 ~/your-hw-repo/week06-todo-list
 cd week06-todo-list
 npm install
 npm run dev
@@ -35,7 +29,7 @@ you copy or clone a project.
 
 ## Two terminal tabs, from class B on
 
-Class B and C both run two processes at once, both in the project folder:
+Class B runs two processes at once, both in the project folder:
 
 ```bash
 npm run dev        # tab 1 — Vite, your app, port 5173
@@ -51,12 +45,6 @@ We install **`json-server@0.17.4`** on purpose. Version 1 is still in beta and
 its flags are different, so a tutorial written for one will not work with the
 other. When the first number in a version changes, assume something breaks —
 and pin the version in `package.json` so your project keeps working.
-
-## A note on file extensions
-
-From class C there is JSX inside `src/context/todos.jsx`. **Vite will not
-compile JSX out of a `.js` file** — if you see "Failed to parse source", check
-the extension before you check anything else.
 
 ## If you get stuck
 

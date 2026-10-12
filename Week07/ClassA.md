@@ -1,4 +1,4 @@
-# Week 06 — The Todo List, part 3: Context
+# Week 07 — The Todo List, part 3: Context
 
 *Refactoring the todo list to the Context API · ~110 min of live coding*
 
