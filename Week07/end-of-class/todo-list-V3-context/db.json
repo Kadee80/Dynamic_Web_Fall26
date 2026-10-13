@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "id": 2,
+      "title": "Read the week 07 notes",
+      "done": false
+    },
+    {
+      "title": "Make sure todo create works in class",
+      "done": true,
+      "id": 3
+    }
+  ]
+}
