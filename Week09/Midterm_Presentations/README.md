@@ -81,3 +81,17 @@ error messages people can actually read, and a submit button that cannot save
 twice.
 
 Whatever time is left over today goes to the same thing.
+
+## Presentation Order (Tues)
+- Mincy
+- Salvador
+- Harry
+- River
+- Mandy
+- Yi
+- Sophia
+  
+- Ali
+- Tony
+- Srividhya
+- Brianna
