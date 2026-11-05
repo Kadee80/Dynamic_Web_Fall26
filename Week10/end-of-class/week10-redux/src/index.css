@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+/* Five colors, no gradients, no rounded corners, no shadows. @theme is how
+  Tailwind v4 takes custom values: each one becomes a utility, so
+   --color-flat-red gives us bg-flat-red, text-flat-red, border-flat-red. */
+@theme {
+  --color-flat-red: #e52b23;
+  --color-flat-blue: #0b4ea2;
+  --color-flat-yellow: #f9d616;
+  --color-ink: #111111;
+  --color-paper: #f4f1ea;
+}
