@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+/* Same five colors as the print shop. Flat, no gradients, no rounded
+   corners, no shadows. */
+@theme {
+  --color-flat-red: #e52b23;
+  --color-flat-blue: #0b4ea2;
+  --color-flat-yellow: #f9d616;
+  --color-ink: #111111;
+  --color-paper: #f4f1ea;
+}
