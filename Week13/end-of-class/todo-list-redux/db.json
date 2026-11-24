@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Wake the heck up"
+    },
+    {
+      "title": "a todo made from VS Code",
+      "id": 3
+    },
+    {
+      "title": "try again?",
+      "id": 5
+    }
+  ]
+}
